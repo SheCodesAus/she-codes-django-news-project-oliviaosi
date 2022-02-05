@@ -20,3 +20,6 @@ class StoryView(generic.DetailView):
     template_name = 'news/story.html'
     context_object_name= 'story'
 
+def form_valid(self,form):
+    form.instance.author= self.request.user
+    return super().form_valid(form)
