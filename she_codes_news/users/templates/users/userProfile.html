@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block stylesheets %}
@@ -7,10 +7,19 @@
 
 {% block content %}
 
-<div>
-    <h1> {{ currentuser.username }}</h1>
+    <h2>User Profile</h2>
+    <p>User name:</p>
 
-</div>
-
+    <div id="latest-stories">
+        {% if latest_stories %}
+            {% for story in latest_stories %}
+                {% include "news/storyCard.html" with story=story position=forloop.counter %}
+                <!-- <p>{{ story.title }}</p> -->
+            {% endfor %}
+        {% else %}
+            <button>Create a new story here.</button>
+        {% endif %}
+    </div> 
 
 {% endblock%}
+
