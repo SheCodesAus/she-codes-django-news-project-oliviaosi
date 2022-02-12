@@ -2,12 +2,13 @@ from django.shortcuts import render
 from django.views import generic
 from django.http import HttpResponse
 from .models import CustomUser
+from news.models import NewsStory
 
 
 # Create your views here.
 
 # from django.urls import reverse_lazy
-# from news.models import NewsStory
+
 # from news.forms import StoryForm
 
 
@@ -17,8 +18,17 @@ class UserProfileView(generic.DetailView):
     template_name = 'users/userProfile.html'
     context_object_name= 'currentuser'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_stories'] = NewsStory.objects.filter(author=self.request.user.id)
+        # context['all_stories'] = NewsStory.objects.all()
+        return context
    
-    # def currentuser(response):
-    #     return render(response,"users/userProfile.html")
+  
     def get_object(self):
         return self.request.user
+
+
+
+
+

@@ -7,19 +7,28 @@
 
 {% block content %}
 
-    <h2>User Profile</h2>
-    <p>User name:</p>
+    <p>Welcome!</p>
+    
+    <div>
+        {% if request.user.is_authenticated %}
+            
+            <h2 id="user-name">{{ user.username }}</h2>
+            <p>Here are the stories from you:</p>
+        {% endif %} 
+    </div>
 
     <div id="latest-stories">
-        {% if latest_stories %}
-            {% for story in latest_stories %}
-                {% include "news/storyCard.html" with story=story position=forloop.counter %}
+        {% if user_stories %}
+            {% for story in user_stories %}
+                {% include "news/storyCard.html" with story=story %}
                 <!-- <p>{{ story.title }}</p> -->
             {% endfor %}
         {% else %}
-            <button>Create a new story here.</button>
+            <p>You haven't written any story yet.</p>
+            <button>Create your first story here.</button>
         {% endif %}
     </div> 
 
 {% endblock%}
 
+{% comment %} forloop.counter {% endcomment %}
