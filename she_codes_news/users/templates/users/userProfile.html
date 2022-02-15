@@ -7,13 +7,22 @@
 
 {% block content %}
 
-    <p>Welcome!</p>
+    {% comment %} <p>Welcome!</p> {% endcomment %}
     
     <div>
         {% if request.user.is_authenticated %}
+            <div class="profile_card">
+                {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
+                <div id="user-name">{{ user.username }}</div>
+                <p class="title">Author for She Codes</p>
+                <p class="title">University of Western Australia</p>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+             </div>
             
-            <h2 id="user-name">{{ user.username }}</h2>
-            <p>Here are the stories from you:</p>
+            {% comment %} <p>Here are the stories from you:</p> {% endcomment %}
         {% endif %} 
     </div>
 
@@ -24,8 +33,8 @@
                 <!-- <p>{{ story.title }}</p> -->
             {% endfor %}
         {% else %}
-            <p>You haven't written any story yet.</p>
-            <button>Create your first story here.</button>
+            <h2>Please login to see author's profile.</h2>
+            {% comment %} <button>login</button> {% endcomment %}
         {% endif %}
     </div> 
 
