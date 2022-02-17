@@ -9,22 +9,21 @@
 
     {% comment %} <p>Welcome!</p> {% endcomment %}
     
-    <div>
-        
-            <div class="profile_card">
-                {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
-                <h4 id='author-name'>{{ news.story.author }}</h4>
-                <p class="title">Author for She Codes</p>
-                <p class="title">University of Western Australia</p>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-             </div>
-            
-            {% comment %} <p>Here are the stories from you:</p> {% endcomment %}
-        {% endif %} 
+    
+
+    <div class="profile_card">
+        {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
+        <h4 id='author-name'>{{ news.story.author }}</h4>
+        <p class="title">Author for She Codes</p>
+        <p class="title">University of Western Australia</p>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
     </div>
+            
+     
+    
 
     <div id="latest-stories">
         {% if user_stories %}
