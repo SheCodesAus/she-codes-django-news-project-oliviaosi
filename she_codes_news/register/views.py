@@ -1,7 +1,8 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.contrib.auth import login,authenticate
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
+# from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 from .models import RegisterUser
@@ -21,5 +22,5 @@ class RegisterView(generic.CreateView):
     context_object_name = 'registerForm'
     template_name = 'register/register.html'
     success_url = reverse_lazy('login')
-    
+
     # success_url = reverse_lazy('news:index')

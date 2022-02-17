@@ -10,10 +10,10 @@
     {% comment %} <p>Welcome!</p> {% endcomment %}
     
     <div>
-        
+        {% if request.user.is_authenticated %}
             <div class="profile_card">
                 {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
-                <h4 id='author-name'>{{ news.story.author }}</h4>
+                <div id="user-name">{{ user.username }}</div>
                 <p class="title">Author for She Codes</p>
                 <p class="title">University of Western Australia</p>
                 <a href="#"><i class="fa fa-dribbble"></i></a>
