@@ -13,7 +13,8 @@
 
     <div class="profile_card">
         {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
-        <h4 id='author-name'>{{ news.story.author }}</h4>
+        
+        <h4 id='author-name'>{{ user.username }}</h4>
         <p class="title">Author for She Codes</p>
         <p class="title">University of Western Australia</p>
         <a href="#"><i class="fa fa-dribbble"></i></a>
@@ -32,7 +33,7 @@
                 <!-- <p>{{ story.title }}</p> -->
             {% endfor %}
         {% else %}
-            <h2>Please login to see author's profile.</h2>
+            <h2>The author hasn't written any story yet</h2>
             {% comment %} <button>login</button> {% endcomment %}
         {% endif %}
     </div> 
