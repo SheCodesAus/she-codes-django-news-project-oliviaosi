@@ -10,6 +10,11 @@ class AddStoryView(generic.CreateView):
     template_name = 'news/createStory.html'
     success_url = reverse_lazy('news:index')
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+        
+
 class IndexView(generic.ListView):
     template_name = 'news/index.html'
 
@@ -37,4 +42,4 @@ class NewAuthorView(generic.CreateView):
     form_class = AuthorForm
     context_object_name = 'authorForm'
     template_name = 'news/newAuthor.html'
-    success_url = reverse_lazy('news:index')
+    success_url = reverse_lazy('users:login')
