@@ -46,8 +46,8 @@ class AuthorProfileView(generic.DetailView):
     #     return context
    
   
-    # def get_object(self):
-    #     return self.request.user
+    def get_object(self):
+        return self.request.author
 
 
 
