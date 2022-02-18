@@ -32,6 +32,27 @@ class UserProfileView(generic.DetailView):
         return self.request.user
 
 
+
+class AuthorProfileView(generic.DetailView):
+
+    model = CustomUser
+    template_name = 'users/authorProfile.html'
+    context_object_name= 'author'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['user_stories'] = NewsStory.objects.filter(author=self.request.user.id)
+    #     # context['all_stories'] = NewsStory.objects.all()
+    #     return context
+   
+  
+    # def get_object(self):
+    #     return self.request.user
+
+
+
+
+
 class CreateAccountView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
