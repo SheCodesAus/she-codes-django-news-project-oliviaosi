@@ -2,6 +2,7 @@ from django.views import generic
 from django.urls import reverse_lazy
 from .models import NewsStory
 from .forms import StoryForm
+from .forms import AuthorForm
 
 class AddStoryView(generic.CreateView):
     form_class = StoryForm
@@ -30,3 +31,10 @@ class StoryView(generic.DetailView):
     def form_valid(self,form):
         form.instance.author= self.request.user
         return super().form_valid(form)
+
+# NewAuthorView
+class NewAuthorView(generic.CreateView):
+    form_class = AuthorForm
+    context_object_name = 'authorForm'
+    template_name = 'news/newAuthor.html'
+    success_url = reverse_lazy('news:index')

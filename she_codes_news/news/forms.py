@@ -3,6 +3,7 @@ from django import forms
 
 from django.forms import ModelForm
 from .models import NewsStory
+from .models import NewAuthor
 
 class StoryForm(ModelForm):
     class Meta:
@@ -12,3 +13,9 @@ class StoryForm(ModelForm):
             'pub_date': forms.DateInput(format=('%m/%d/%Y'),
         attrs={'class':'form-control', 'placeholder':'Select a date','type':'date'}),
         }
+
+class AuthorForm(ModelForm):
+    class Meta:
+        model= NewAuthor
+        fields = ['user_name','password','confirm_password']
+        

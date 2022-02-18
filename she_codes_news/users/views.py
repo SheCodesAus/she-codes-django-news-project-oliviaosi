@@ -28,18 +28,21 @@ class UserProfileView(generic.DetailView):
     def get_object(self):
         return self.request.user
 
-from django.shortcuts import get_object_or_404
-from django.views.generic import DetailView
 
-class Profile(DetailView):
+#get user object based on username
 
-      template_name = 'users/authorProfile.html'
-      queryset = CustomUser.objects.all()
+# from django.shortcuts import get_object_or_404
+# from django.views.generic import DetailView
 
-      def get_object(self):
+# class Profile(DetailView):
 
-           UserName= self.kwargs.get("username")
-           return get_object_or_404(CustomUser, username=UserName)
+#       template_name = 'users/authorProfile.html'
+#       queryset = CustomUser.objects.all()
+
+#       def get_object(self):
+
+#            UserName= self.kwargs.get("username")
+#            return get_object_or_404(CustomUser, username=UserName)
 
 
 
