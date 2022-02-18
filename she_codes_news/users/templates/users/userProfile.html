@@ -15,8 +15,8 @@
         {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
         
         {% comment %} <h4 id='author-name'>{{ user.username }}</h4> {% endcomment %}
-        {% if user.username %}
-            <h4>{{ user.username }}</h4>
+        {% if news.story.author %}
+            <h4>{{ news.story.author }}</h4>
         {% endif %}
 
         <p class="title">Author for She Codes</p>
