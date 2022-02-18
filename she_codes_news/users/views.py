@@ -35,9 +35,9 @@ class UserProfileView(generic.DetailView):
 
 class AuthorProfileView(generic.DetailView):
 
-    model = CustomUser
+    model = NewsStory
     template_name = 'users/authorProfile.html'
-    context_object_name= 'author'
+    context_object_name= 'currentauthor'
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
@@ -60,7 +60,13 @@ class CreateAccountView(CreateView):
 
 
 
-
+# class NewsStory(models.Model):
+#     title = models.CharField(max_length=200)
+#     # author = models.CharField(max_length=200)
+#     author= models.ForeignKey(
+#         get_user_model(),
+#         on_delete=models.CASCADE
+#     )
 
 #get user object based on username
 
