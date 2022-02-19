@@ -2,25 +2,22 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
 {% endblock%}
 
 {% block content %}
 
-    {% comment %} <p>Welcome!</p> {% endcomment %}
     
-    
-
-    <div class="profile_card">
+    <div class="user-profile-card">
         {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
         
         {% comment %} <h4 id='author-name'>{{ user.username }}</h4> {% endcomment %}
         {% if currentuser.username %}
-            <h4>{{ currentuser.username}}</h4>
+            <div class="user-name">{{ currentuser.username}}</div>
+            <p class="title">{{ currentuser.email }}</p>
+            <p class="title">Author for She Codes</p>
         {% endif %}
-
-        <p class="title">Author for She Codes</p>
-        <p class="title">University of Western Australia</p>
+       
         <a href="#"><i class="fa fa-dribbble"></i></a>
         <a href="#"><i class="fa fa-twitter"></i></a>
         <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -28,7 +25,7 @@
     </div>
             
      
-    
+    <div class="section-title">Stories from you</div>
 
     <div id="latest-stories">
         {% if currentuser.newsstory_set.all %}
