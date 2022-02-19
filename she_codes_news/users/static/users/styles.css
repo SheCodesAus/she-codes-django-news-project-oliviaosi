@@ -25,8 +25,8 @@
         padding: 1rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        background-color:#f7eeba;
-        border-color: #FCD7DB;
+        background-color:#FCD7DB;
+        
     
       }
     .section-title {
@@ -36,4 +36,12 @@
         text-transform: capitalize;
         margin-top: 1rem;
         margin-bottom: 1rem;
+      }
+      .card-author{
+        color:#4E9CAF;  
+      }
+
+      .avatar{
+        border-radius: 4px;
+        width: 150px;
       }
