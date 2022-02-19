@@ -21,11 +21,11 @@ class UserProfileView(generic.DetailView):
     template_name = 'users/userProfile.html'
     context_object_name= 'currentuser'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['user_stories'] = NewsStory.objects.filter(author=self.request.user.id)
+    # def get_context_data(self, **kwargs):
+        # context = super().get_context_data(**kwargs)
+        # context['user_stories'] = NewsStory.objects.filter(author=self.request.user.id)
         # context['all_stories'] = NewsStory.objects.all()
-        return context
+        # return context
    
   
     def get_object(self):
@@ -35,9 +35,9 @@ class UserProfileView(generic.DetailView):
 
 class AuthorProfileView(generic.DetailView):
 
-    model = NewsStory
+    model = CustomUser
     template_name = 'users/authorProfile.html'
-    context_object_name= 'currentauthor'
+    context_object_name= 'author'
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)

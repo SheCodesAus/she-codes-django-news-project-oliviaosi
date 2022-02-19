@@ -8,15 +8,15 @@
 {% block content %}
 
 <div class=”post_name”>
-    <a href=”{% url ‘user_profile’ post.author.username %}”>{{ post.author }}</a>
+    {{ author.first_name }} {{ author.last_name }}
  </div>
 
  <div class="profile_card">
     {% comment %} <img src="trees.jpeg" alt="trees"> {% endcomment %}
     
     {% comment %} <h4 id='author-name'>{{ user.username }}</h4> {% endcomment %}
-    {% if news.story.author %}
-        <h4>{{ news.story.author }}</h4>
+    {% if author %}
+        <h4>{{ author.username }}</h4>
     {% endif %}
 
     <p class="title">Author for She Codes</p>
@@ -24,7 +24,14 @@
     
 </div>
 
+<div>
+{% for story in author.newsstory_set.all %}
+{{ story.title }}
+{% endfor %}
+</div>
+
 {% endblock%}
+
 
 {% comment %} forloop.counter {% endcomment %}
 
