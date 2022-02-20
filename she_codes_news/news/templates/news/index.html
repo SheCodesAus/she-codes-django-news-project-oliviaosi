@@ -5,18 +5,29 @@
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 
+
+
+
+
 {% block content %}
+    <div class="top-section">
+        <div class="top-paragraph">
+            She Codes is a place to write, read, and connect
+        </div> 
+        
+        <div class="top-buttn">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'news:newStory' %}" id="write-new-stroy">Write a new story</a> 
+            {% else %} 
 
-    
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'news:newStory' %}" id="write-new-stroy">Write a new story</a> 
-    {% else %} 
+                <a href="{% url 'users:createAccount' %}" id="sign_up">Become an author today</a>
+            {% endif %} 
+        </div>
+        
+        {% comment %} <div class="spacer"></div> {% endcomment %}
 
-        <a href="{% url 'users:createAccount' %}" id="sign_up">Become an author today</a>
-    {% endif %} 
+    </div>
 
-   
-    
     <h2 id="latest">Latest News</h2>
 
     <div id="latest-stories">
