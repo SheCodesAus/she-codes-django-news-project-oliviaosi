@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block title %}Create an Account{% endblock %}
+
+{% block content%}
+    <form method= "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Register</button>
+    </form>
+
+{% endblock %}
+
+{% comment %} <form method= "POST" class="form-group"> {% endcomment %}
